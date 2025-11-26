@@ -32,9 +32,9 @@ A fully responsive and interactive landing page for **Clove Dental — Root Cana
 
 index.html – Main HTML file styles.css – All styling for the website script.js – Interactions (FAQ, form validation, carousel, etc.) images/ – All images used in the website README.md
 
- ## How to Run Locally
+ ## 📦 How to Run Locally
 Download or clone this repository
-git clone https://github.com/bhavishyabansal006/clove_dental_UNBUNDL.git
+git clone https://github.com/bhavishyabansal006/clove-dental-UNBUNDL.git
 Open index.html in any browser.
 
 (Optional) To run using a local server: python3 -m http.server
