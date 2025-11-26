@@ -1,0 +1,2174 @@
+/* =========================
+   Global variables & font
+   ========================= */
+:root {
+  --brand-orange: #f48b2f;
+  --brand-brown: #4d2b1f;
+  --bg-peach: #fff6f2;
+  --card-bg: #fffaf7;
+  --muted: #7a7a7a;
+  --max-width: 1400px;
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --gap: 18px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+}
+
+/* =========================
+   Global reset & base rules
+   ========================= */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  color: var(--brand-brown);
+  background: #fff;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Generic layout containers used across the page */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.wide-container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
+  box-sizing: border-box;
+}
+
+/* -------------------------
+   Header (logo + navigation)
+   ------------------------- */
+.site-header {
+  background: linear-gradient(180deg, var(--bg-peach), transparent);
+  border-bottom: 1px solid rgba(244, 139, 47, 0.05);
+}
+
+/* Aligns logo on the left and navigation + buttons on the right */
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+}
+
+/* Brand / logo area in header */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: var(--brand-orange);
+  font-size: 28px;
+}
+
+.logo-sub {
+  font-size: 10px;
+  color: var(--brand-brown);
+  letter-spacing: 4px;
+  margin-left: 2px;
+}
+
+/* Main navigation and header CTAs (book, call) */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list a {
+  color: var(--brand-brown);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Generic pill style used for header buttons */
+.pill {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid rgba(77, 43, 31, 0.08);
+  font-weight: 600;
+}
+
+/* “Book” pill button (orange) */
+.book-pill {
+  background: var(--brand-orange);
+  color: #fff;
+  border: none;
+}
+
+/* Phone pill in header with icon + number */
+.phone-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  border: 1px solid rgba(77, 43, 31, 0.08);
+  color: var(--brand-brown);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 22px;
+  font-weight: 600;
+}
+
+.phone-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  color: var(--brand-brown);
+}
+
+.phone-number {
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* -------------------------
+   HERO section (image + overlay + form)
+   ------------------------- */
+.hero {
+  padding: 18px 0 0;
+}
+
+/* Two-column hero layout: left image, right form */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  align-items: center;
+}
+
+/* Left hero: main banner image, floating avatars, overlay */
+.hero-left {
+  position: relative;
+  padding-right: 6px;
+  overflow: visible;
+}
+
+.hero-image {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Main hero image styling */
+.hero-image img {
+  width: 100%;
+  height: clamp(340px, 38vh, 560px);
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Translucent text card over hero image */
+.hero-overlay {
+  position: absolute;
+  left: 28px;
+  bottom: 44px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(0.1px);
+  padding: 18px;
+  border-radius: 12px;
+  width: clamp(300px, 42%, 520px);
+  box-sizing: border-box;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.hero-overlay h1 {
+  margin: 0 0 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  color: var(--brand-brown);
+}
+
+.hero-overlay .muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* -------------------------
+   Reusable button styles
+   ------------------------- */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 26px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Solid orange button */
+.btn-orange {
+  background: var(--brand-orange);
+  color: #fff;
+}
+
+/* White outline-style button */
+.btn-outline {
+  background: #fff;
+  border: 1px solid rgba(244, 139, 47, 0.12);
+  color: var(--brand-brown);
+}
+
+/* Full-width orange CTA used in forms */
+.btn-orange-outline {
+  background: var(--brand-orange);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 26px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-orange-outline:hover {
+  background: #e07a20;
+}
+
+/* Floating circular avatars on hero image */
+.floating-avatars {
+  position: absolute;
+  right: 24px;
+  top: 40px;
+  display: flex;
+  gap: 8px;
+}
+
+.floating-avatars img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* -------------------------
+   Hero right side: appointment form card
+   ------------------------- */
+.hero-right .form-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(244, 139, 47, 0.06);
+  box-shadow: 0 8px 26px rgba(77, 43, 31, 0.06);
+}
+
+.form-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.form-card h2 {
+  margin: 8px 0 6px;
+  font-size: 18px;
+  color: var(--brand-brown);
+}
+
+/* Generic muted text helper */
+.muted {
+  color: var(--muted);
+}
+
+/* Column-based arrangement for stacked form inputs */
+.appointment-form .form-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Row-based arrangement for side-by-side form fields */
+.appointment-form .form-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* Basic input styling for main appointment form */
+.appointment-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 24px;
+  border: 1px solid rgba(77, 43, 31, 0.07);
+  background: #fff;
+}
+
+/* -------------------------
+   Hero form captcha row
+   ------------------------- */
+.captcha-row {
+  align-items: center;
+}
+
+.captcha-value {
+  background: var(--brand-brown);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 22px;
+  font-weight: 700;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+/* -------------------------
+   Consent text + checkbox area (below hero form)
+   ------------------------- */
+.consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+
+.consent input[type="checkbox"] {
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.consent span {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.consent a {
+  color: var(--brand-orange);
+  text-decoration: none;
+}
+
+.consent a:hover {
+  text-decoration: underline;
+}
+
+/* Row with checkbox + small consent text + button (responsive on mobile) */
+.consent-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--brand-brown);
+  width: auto;
+  flex-wrap: wrap;
+}
+
+.consent-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.consent-row label {
+  margin: 0;
+  line-height: 1.2;
+  display: inline-block;
+}
+
+.consent-row a {
+  color: var(--brand-orange);
+  text-decoration: none;
+}
+
+.consent-row a:hover {
+  text-decoration: underline;
+}
+
+/* Submit button inside consent-row (desktop) */
+.consent-row .btn-orange {
+  background: var(--brand-orange);
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 28px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+/* Utility: full-width button */
+.btn.full {
+  width: 100%;
+  padding: 12px;
+}
+
+/* -------------------------
+   Stats ribbon under hero
+   ------------------------- */
+.stats-ribbon {
+  background: linear-gradient(180deg, var(--bg-peach), transparent);
+  padding: 10px 0;
+  border-top: 1px solid rgba(244, 139, 47, 0.03);
+  overflow: hidden;
+}
+
+/* Animated strip of stats numbers */
+.stats-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  animation: rotateStats 30s linear infinite;
+}
+
+/* Horizontal scroll animation for stats */
+@keyframes rotateStats {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+/* Individual stat item card */
+.stat {
+  flex: 0 0 auto;
+  min-width: 200px;
+  text-align: center;
+  padding: 10px 16px;
+  border-right: 1px solid rgba(77, 43, 31, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.stat:last-child {
+  border-right: 0;
+}
+
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--brand-orange);
+  flex-shrink: 0;
+}
+
+/* Stat text (value + label) */
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.stat-content strong {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-brown);
+  display: block;
+}
+
+.stat-content span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* -------------------------
+   Generic sections / cards wrapper
+   ------------------------- */
+.section {
+  padding: 36px 0;
+}
+
+.center {
+  text-align: center;
+}
+
+/* -------------------------
+   Treatment cards (Root canal prices etc.)
+   ------------------------- */
+.treatment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 18px;
+}
+
+/* Main treatment card layout */
+.treatment-card {
+  display: flex;
+  gap: 0;
+  background: #fff;
+  border-radius: 24px;
+  border: 2px solid var(--brand-orange);
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Left side of treatment card: image */
+.treatment-img {
+  flex: 0 0 45%;
+  min-width: 0;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.treatment-img img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+/* Right side: treatment text details */
+.treatment-info {
+  flex: 1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.treatment-info h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-brown);
+  line-height: 1.3;
+}
+
+.treatment-info .subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.treatment-info .section-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-brown);
+  margin: 0 0 12px 0;
+}
+
+.treatment-info ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0 0 20px 0;
+}
+
+.treatment-info ul li {
+  font-size: 14px;
+  color: var(--brand-brown);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+/* Price area inside treatment card */
+.price-section {
+  margin: auto 0 16px 0;
+}
+
+.price-label {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 4px 0;
+}
+
+.price-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--brand-orange);
+  margin: 0;
+}
+
+/* Utility: pale background section */
+.pale {
+  background: var(--bg-peach);
+}
+
+/* -------------------------
+   Smiles / Before-After gallery
+   ------------------------- */
+.smiles-heading {
+  font-weight: 700;
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.smiles-subheading {
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+/* Grid of smile photos */
+.smiles-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 0;
+  overflow: visible;
+}
+
+.smile {
+  width: 100%;
+  margin: 0;
+}
+
+.smile img {
+  border-radius: 16px;
+  height: auto;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Caption containing patient + location */
+.smile figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  font-size: 16px;
+}
+
+.smile figcaption strong {
+  font-weight: 700;
+  color: var(--brand-brown);
+  text-align: left;
+}
+
+.smile figcaption .location {
+  color: var(--brand-orange);
+  font-weight: 400;
+  text-align: right;
+}
+
+/* -------------------------
+   Why choose us section (accordion)
+   ------------------------- */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 24px;
+  align-items: center;
+  margin-top: 18px;
+}
+
+/* Left side: accordion list */
+.why-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Right side: supporting image */
+.why-image img {
+  border-radius: 16px;
+  display: block;
+}
+
+/* Single accordion item */
+.why-item {
+  border-bottom: 1px solid rgba(77, 43, 31, 0.08);
+}
+
+/* Clickable accordion header row */
+.why-toggle {
+  width: 100%;
+  padding: 16px 0;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+
+.why-toggle span:first-child {
+  flex: 1;
+  font-size: 16px;
+  color: var(--brand-brown);
+  font-weight: 400;
+}
+
+/* Plus icon on the right side of accordion */
+.plus-icon {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--brand-orange);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+/* Hidden/expandable content of accordion */
+.why-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 0;
+}
+
+.why-content p {
+  margin: 0;
+  padding: 0 0 16px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* Active accordion item */
+.why-item.active .why-content {
+  max-height: 500px;
+  padding: 8px 0 16px 0;
+}
+
+/* -------------------------
+   Testimonials carousel (before/after photos)
+   ------------------------- */
+/* Full testimonial strip wrapper (arrows + scroll track) */
+.testimonials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  width: 100%;
+}
+
+/* Arrow buttons on both sides of carousel */
+.carousel-btn {
+  border: none;
+  background: rgba(255, 255, 255, 0.96);
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--brand-brown);
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, background 0.12s ease;
+}
+
+/* Hover and focus states for carousel arrows */
+.carousel-btn:hover,
+.carousel-btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.carousel-btn:active {
+  transform: translateY(0);
+}
+
+/* Horizontal scrollable track for testimonial cards */
+.carousel-track {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 8px;
+  flex: 1 1 auto;
+  scroll-snap-type: x mandatory;
+  align-items: start;
+}
+
+/* Individual testimonial card */
+.testimonial-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  min-width: 210px;
+  max-width: 320px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 8px;
+  border: 1px solid rgba(77, 43, 31, 0.04);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+/* Hover effect for testimonial card */
+.testimonial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Image inside testimonial card */
+.testimonial-card img {
+  width: 100%;
+  height: 160px;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Text meta below each testimonial image */
+.tmeta {
+  padding-top: 8px;
+  font-size: 13px;
+  color: var(--brand-brown);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Custom scrollbar for testimonial track */
+.carousel-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: rgba(77, 43, 31, 0.08);
+  border-radius: 6px;
+}
+
+/* Focus outline for accessibility */
+.testimonial-card:focus {
+  outline: 3px solid rgba(244, 139, 47, 0.12);
+  outline-offset: 4px;
+}
+
+/* Reduced motion preference: disable transitions & animations */
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track,
+  .testimonial-card,
+  .carousel-btn {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Responsive tweaks for testimonial carousel */
+@media (max-width: 1100px) {
+  .testimonial-card {
+    min-width: 240px;
+  }
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 800px) {
+  .testimonial-card {
+    min-width: 82%;
+    max-width: 82%;
+  }
+  .testimonial-card img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 420px) {
+  .testimonial-card {
+    min-width: 92%;
+    max-width: 92%;
+    padding: 10px;
+  }
+  .testimonial-card img {
+    height: 180px;
+  }
+  .carousel-btn {
+    display: none;
+  }
+}
+
+/* -------------------------
+   Appointment strip (inline mini form section)
+   ------------------------- */
+/* Big full-width appointment bar */
+.appointment-strip {
+  background: var(--bg-peach);
+  padding: 40px 22px;
+  border-radius: 0;
+  margin-top: 0;
+}
+
+/* Book an Appointment With Clove Dentist in Delhi (heading for that to be bold and centered) */
+
+.appointment-strip h3 {
+  text-align: center;
+  font-size: 28px; /* bigger text */
+  font-weight: 700; /* bold */
+  color: var(--brand-brown);
+  margin: 0 0 24px; /* space below heading */
+  font-family: "Poppins", sans-serif;
+}
+
+/* Inner flex container for appointment strip */
+.appointment-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Row form inside appointment strip */
+.strip-form {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap;
+}
+
+/* Main text inputs on the strip form */
+.strip-form input {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 28px;
+  border: 1px solid rgba(77, 43, 31, 0.1);
+  background: #fff;
+  font-size: 15px;
+  font-family: inherit;
+  min-width: 0;
+}
+
+.strip-form input::placeholder {
+  color: #999;
+}
+
+/* Captcha area on strip form */
+.strip-captcha {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.strip-captcha input {
+  flex: 0 0 auto;
+  width: 180px;
+  padding: 14px 20px;
+  border-radius: 28px;
+  border: 1px solid rgba(77, 43, 31, 0.1);
+  background: #fff;
+}
+
+/* Captcha value pill on strip */
+.strip-captcha .captcha-value {
+  background: var(--brand-brown);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 28px;
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Submit button on strip form */
+.strip-form .btn-orange {
+  background: var(--brand-orange);
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 28px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.strip-form .btn-orange:hover {
+  background: #e07a20;
+}
+
+/* Compact version of appointment-strip (alternative style) */
+.appointment-strip.compact {
+  background: var(--card-bg);
+  padding: 22px;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+/* Responsive layout changes for appointment strip & consent row */
+/* Responsive layout changes for appointment strip & consent row */
+@media (max-width: 800px) {
+  .appointment-strip h3 {
+    font-size: 20px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  /* form inputs stack vertically */
+  .strip-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* keep checkbox + text on same line, button goes below full width */
+  .consent-row {
+    flex-wrap: wrap; /* allow button to go to next line */
+    align-items: flex-start; /* checkbox + text aligned to left */
+  }
+
+  .consent-row label {
+    flex: 1 1 80%; /* text takes remaining width */
+  }
+
+  .consent-row .btn-orange {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .strip-captcha {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .strip-captcha input {
+    flex: 1;
+    width: auto;
+  }
+
+  .strip-form .btn-orange {
+    width: 100%;
+  }
+}
+
+/* -------------------------
+   Feature / promo / FAQ grids
+   ------------------------- */
+/* Three-column feature cards (image + overlay text) */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.feature-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.feature-card img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Dark overlay box on top of feature images */
+.feature-overlay {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  background: rgba(15, 26, 33, 0.86);
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  max-width: 70%;
+}
+
+/* Three-column promo cards section */
+.promo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+}
+
+.promo-card {
+  background: #fff;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(77, 43, 31, 0.04);
+}
+
+/* Enhanced promo card with orange/peach background */
+.promo-card-form {
+  background: #fff6f2; /* Light peachy-orange background for entire card */
+  border: 2px solid rgba(244, 139, 47, 0.15);
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.promo-card-plan {
+  border: 2px solid rgba(244, 139, 47, 0.15);
+  padding: 24px;
+}
+
+/* Updated benefits list styling */
+.plan-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.plan-benefits li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  color: var(--brand-brown);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.plan-benefits li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--brand-orange);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Mini form checkbox consent - NO orange background, clean style */
+.mini-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12px;
+  margin: 12px 0;
+  line-height: 1.5;
+  padding: 0; /* NO padding */
+  background: transparent; /* NO background color */
+  border-radius: 0; /* NO border radius */
+  border: none; /* NO border */
+}
+
+.mini-consent input[type="checkbox"] {
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.mini-consent span {
+  flex: 1;
+  line-height: 1.5;
+  color: var(--brand-brown);
+  font-size: 12px;
+}
+
+.mini-consent a {
+  color: var(--brand-brown); /* Same color as text */
+  text-decoration: underline;
+  font-weight: 400; /* Normal weight */
+}
+
+.mini-consent a:hover {
+  color: var(--brand-orange);
+}
+
+/* Special offer section */
+.special-offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0 16px;
+  padding: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(244, 139, 47, 0.1),
+    rgba(244, 139, 47, 0.05)
+  );
+  border-radius: 10px;
+  border: 1px solid rgba(244, 139, 47, 0.2);
+}
+
+.offer-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brand-orange);
+}
+
+.offer-price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.price-new {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--brand-orange);
+}
+
+.price-old {
+  font-size: 18px;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+/* Update button styling for plan card */
+.promo-card-plan .btn-orange {
+  width: 100%;
+  background: var(--brand-orange);
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 26px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.promo-card-plan .btn-orange:hover {
+  background: #e07a20;
+}
+
+/* Small inline forms inside promo cards */
+.mini-form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(77, 43, 31, 0.06);
+  margin-bottom: 8px;
+}
+
+
+/* FAQ section wrapper */
+.faq {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 36px 20px;
+  font-family: Inter, system-ui, -apple-system, "Helvetica Neue", Arial;
+  color: #222;
+}
+
+/* Heading centered like the reference */
+.faq h3 {
+  font-size: 26px;
+  font-weight: 600;
+  color: #2f2f2f;
+  text-align: center;
+  margin: 0 0 28px 0;
+}
+
+/* Two-column grid that matches reference spacing */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 60px; /* tighter row gap, larger column gap for airy look */
+  align-items: start;
+}
+
+/* Column holds multiple items stacked */
+.faq-column {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Each item is a list item grouping question + answer */
+.faq-item {
+  display: block;
+}
+
+/* Question button: minimal style with thin bottom divider (like reference) */
+.faq-q {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 18px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15.5px;
+  line-height: 1.4;
+  color: #222;
+  border-bottom: 1px solid rgba(77, 43, 31, 0.06); /* thin separator */
+  transition: background .12s ease;
+}
+
+/* slight left padding to line up with heading as in reference */
+.faq-q .faq-text { padding-left: 8px; }
+
+/* Hover/focus styles for button */
+.faq-q:hover,
+.faq-q:focus {
+  background: rgba(0,0,0,0.012);
+  outline: none;
+}
+
+/* Orange plus on the right (keeps plus by default). small size to match reference */
+.faq-icon {
+  color: var(--brand-orange, #f38128);
+  font-weight: 700;
+  margin-left: 12px;
+  font-size: 18px;
+  display: inline-block;
+  width: 22px;
+  text-align: center;
+}
+
+/* Answer region: visually appears below, smooth reveal using max-height and padding animation */
+.faq-a {
+  color: #4b4b4b;
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 0 6px;            /* initial horizontal padding - expands when visible */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 260ms ease, padding 230ms ease;
+  background: transparent;
+  border-bottom: 1px solid rgba(77, 43, 31, 0.03); /* subtle divider under answer */
+}
+
+/* When visible: add padding and allow space for content */
+.faq-q[aria-expanded="true"] + .faq-a {
+  padding: 14px 6px 18px 6px;
+  max-height: 480px; /* big enough for typical answer - adjust if needed */
+}
+
+/* Mobile: single column stack */
+@media (max-width: 840px) {
+  .faq-grid { grid-template-columns: 1fr; gap: 10px 0; }
+  .faq { padding: 30px 14px; }
+}
+
+/* -------------------------
+   Google Reviews section
+   ------------------------- */
+/* Main reviews grid: left panel (score) + right (review cards) */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 36px;
+  align-items: start;
+  padding: 48px 18px;
+  background: var(--bg-peach);
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Left Google score card */
+.gscore {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px;
+  min-height: 220px;
+  width: 220px;
+  box-shadow: 0 20px 40px rgba(15, 26, 33, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Google logo container */
+.glogo {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff, #fff0eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+}
+
+.glogo img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+/* Score text and short description below logo */
+.gmeta {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.gmeta strong {
+  display: block;
+  font-size: 22px;
+  color: var(--brand-brown);
+}
+
+.gmeta span {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.gmeta p.muted {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* Right side: grid of individual Google review cards */
+.gcards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Single review card styling */
+.greview {
+  background: #fff;
+  border-radius: 14px;
+  padding: 28px 24px;
+  box-shadow: 0 18px 36px rgba(15, 26, 33, 0.06);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 380px;
+  box-sizing: border-box;
+}
+
+/* Circular reviewer avatar at top */
+.review-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: -72px auto 6px auto;
+  border: 8px solid #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: #f3f1ef;
+}
+
+.review-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Reviewer name */
+.review-name {
+  text-align: center;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brand-brown);
+}
+
+/* Row of star icons */
+.review-stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -2px;
+}
+
+.review-stars .star {
+  color: #f6c54a;
+  font-size: 16px;
+}
+
+/* Main review text */
+.review-text {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-top: 6px;
+  flex: 1 1 auto;
+}
+
+/* Small Google badge on card corner */
+.review-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 66px;
+  height: 66px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #fff, #fff0eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+  z-index: 5;
+}
+
+.review-badge img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* Soft glow behind badge */
+.review-badge::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: -14px;
+  width: 48px;
+  height: 48px;
+  background: rgba(244, 139, 47, 0.1);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+/* Alternate simple layout for narrower windows */
+.reviews-grid.simple {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 28px 18px;
+  background: var(--bg-peach);
+}
+
+.reviews-grid.simple .gscore {
+  min-width: 180px;
+  box-shadow: 0 8px 24px rgba(15, 26, 33, 0.04);
+}
+
+.reviews-grid.simple .gcards {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 6px;
+}
+
+/* Responsive layout adjustments for reviews */
+@media (max-width: 1100px) {
+  .reviews-grid {
+    grid-template-columns: 200px 1fr;
+    gap: 22px;
+    padding: 34px 18px;
+  }
+  .gcards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .review-avatar {
+    width: 92px;
+    height: 92px;
+    margin-top: -64px;
+  }
+  .review-badge {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+@media (max-width: 800px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 26px 14px;
+  }
+  .gcards {
+    display: flex;
+    overflow-x: auto;
+    gap: 18px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .greview {
+    min-width: 86%;
+    max-width: 86%;
+  }
+}
+
+/* Very small phones for reviews */
+@media (max-width: 480px) {
+  .greview {
+    min-width: 92%;
+    max-width: 92%;
+  }
+  .review-avatar {
+    width: 80px;
+    height: 80px;
+    margin-top: -52px;
+  }
+}
+
+/* -------------------------
+   Clinics / Locations cards
+   ------------------------- */
+/* Grid for multiple clinic city cards + photos */
+.clinics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+/* City/card with name + count */
+.city-card {
+  background: #fff;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(77, 43, 31, 0.04);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Right-side photos column in clinics-grid */
+.clinic-photos {
+  display: flex;
+  gap: 12px;
+  grid-column: 4;
+}
+
+.clinic-photos img {
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* -------------------------
+   Locations section (left cities + right photos)
+   ------------------------- */
+.locations-inner {
+  display: grid;
+  grid-template-columns: 1fr 560px;
+  gap: 28px;
+  align-items: start;
+  padding: 36px 18px;
+  background: var(--bg-peach);
+  box-sizing: border-box;
+}
+
+/* Left copy text for locations section */
+.locations-left .section-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand-brown);
+}
+
+.locations-left .section-sub {
+  margin: 0 0 18px;
+  color: var(--muted);
+}
+
+/* Grid of city selection items */
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+}
+
+/* Single clickable city item */
+.city-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid rgba(77, 43, 31, 0.06);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(15, 26, 33, 0.02);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.city-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(15, 26, 33, 0.04);
+}
+
+/* Icon / badge on city item */
+.city-icon {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: linear-gradient(180deg, #fff, #fff6f0);
+  padding: 6px;
+}
+
+/* City name + clinic count */
+.city-name {
+  flex: 1 1 auto;
+  font-weight: 600;
+  color: var(--brand-brown);
+}
+
+.city-count {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Right-side clinic photos grid */
+.locations-right {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+}
+
+.clinic-photos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  width: 100%;
+}
+
+/* Single clinic photo card */
+.clinic-photo {
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(15, 26, 33, 0.04);
+  aspect-ratio: 4/3;
+}
+
+.clinic-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive layout for locations */
+@media (max-width: 1100px) {
+  .locations-inner {
+    grid-template-columns: 1fr 480px;
+    gap: 22px;
+  }
+  .clinic-photo img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 900px) {
+  .locations-inner {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 24px 12px;
+  }
+  .clinic-photos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .cities-grid {
+    grid-template-columns: 1fr;
+  }
+  .clinic-photos-grid {
+    grid-template-columns: 1fr;
+  }
+  .clinic-photo img {
+    height: 220px;
+  }
+}
+
+/* Focus outline for keyboard navigation on city items */
+.city-item:focus {
+  outline: 3px solid rgba(244, 139, 47, 0.12);
+  outline-offset: 2px;
+}
+
+/* -------------------------
+   Footer (exact replica style)
+   ------------------------- */
+:root{
+  --brand-orange: #f48b2f;
+  --brand-brown: #3b2216;
+  --max-width: 1180px;
+}
+
+/* --- Footer base --- */
+
+/* -------------------------
+   Footer (exact replica style)
+   ------------------------- */
+.site-footer-exact {
+  position: relative;
+  background: #3b2216;
+  color: #fff;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+}
+
+/* Orange strip on left */
+.site-footer-exact::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  bottom: 10px;
+  width: 8px;
+  background: var(--brand-orange);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+/* Footer inner container - NO max-width */
+.site-footer-exact .footer-inner {
+  width: 100%;
+  margin: 0;
+  padding: 18px 28px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* Row holding logo + links */
+.footer-inner-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo block */
+.footer-left {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding-left: 2px;
+}
+
+.logo-mark {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Logo styling */
+.logo-main {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: var(--brand-orange);
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.logo-colon {
+  color: var(--brand-orange);
+}
+
+.logo-sub {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 10px;
+  letter-spacing: 6px;
+  margin-top: -8px;
+}
+
+/* Links on right side */
+.footer-links {
+  margin-left: auto;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  font-size: 15px;
+  padding: 6px 0;
+}
+
+/* Midline - right aligned */
+.footer-midline {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 28px 0;
+  box-sizing: border-box;
+}
+
+.footer-midline .midline {
+  width: 260px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 1px;
+}
+
+/* Footer bottom - NO max-width */
+.site-footer-exact .footer-bottom {
+  padding: 10px 0 18px;
+  background: transparent;
+  width: 100%;
+}
+
+.site-footer-exact .footer-bottom-content {
+  width: 100%;
+  margin: 0;
+  padding: 0 28px;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+.site-footer-exact .footer-bottom small {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .logo-main {
+    font-size: 42px;
+  }
+  .footer-links {
+    gap: 18px;
+  }
+  .site-footer-exact .footer-inner {
+    padding: 16px 18px;
+  }
+  .footer-midline {
+    padding: 8px 18px 0;
+  }
+  .site-footer-exact .footer-bottom-content {
+    padding: 0 18px;
+  }
+  .site-footer-exact::before {
+    top: 8px;
+    bottom: 8px;
+  }
+}
+
+@media (max-width: 720px) {
+  .footer-inner-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .footer-links {
+    width: 100%;
+    justify-content: flex-start;
+    margin-left: 0;
+    order: 2;
+  }
+  .footer-midline .midline {
+    width: 100%;
+  }
+  .logo-main {
+    font-size: 36px;
+  }
+  .site-footer-exact .footer-bottom-content {
+    justify-content: flex-start;
+    padding-top: 8px;
+  }
+  .site-footer-exact::before {
+    left: 8px;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo-main {
+    font-size: 30px;
+  }
+  .footer-link {
+    font-size: 13px;
+  }
+}
+
+/* Remove container constraints for footer */
+.site-footer-exact .footer-inner {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 18px 28px;
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+/* Update footer bottom container */
+.site-footer-exact .footer-bottom-content {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0 28px;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+}
+
+/* Ensure footer midline also spans full width */
+.footer-midline {
+  display: flex;
+  justify-content: flex-end;
+  padding: 8px 28px 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+/* -------------------------
+   General responsive rules
+   ------------------------- */
+@media (max-width: 1100px) {
+  .hero-grid {
+    grid-template-columns: 1fr 360px;
+  }
+  .why-grid {
+    grid-template-columns: 1fr 360px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Show hamburger, hide desktop nav (JS will toggle) */
+  #hamburger {
+    display: block;
+  }
+  .nav-list {
+    display: none;
+  }
+
+  /* Stack hero content vertically on tablet/mobile */
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Overlay becomes normal block under image on mobile */
+  .hero-overlay {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: auto;
+    margin-top: 12px;
+  }
+
+  .hero-image img {
+    height: 320px;
+  }
+
+  .hero-right {
+    order: 2;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .clinics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-links {
+    justify-content: flex-end;
+  }
+
+  /* Treatment cards become vertical stacked */
+  .treatment-card {
+    flex-direction: column;
+  }
+
+  .treatment-img {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  /* Smiles gallery goes 2-column */
+  .smiles-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Small phone-specific adjustments */
+@media (max-width: 480px) {
+  .floating-avatars {
+    display: none;
+  }
+
+  .stats-inner {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .treatment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .appointment-inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logo-main {
+    font-size: 36px;
+  }
+
+  .footer-sep {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  /* Smiles gallery single-column on very small screens */
+  .smiles-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Respect users who prefer reduced motion (global) */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
